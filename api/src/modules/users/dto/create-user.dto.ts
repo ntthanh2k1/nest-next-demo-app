@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsStrongPassword } from 'class-validator';
 
 export class CreateUserDto {
   // https://docs.nestjs.com/techniques/validation#auto-validation
@@ -6,8 +6,12 @@ export class CreateUserDto {
   @IsNotEmpty()
   name: string;
 
+  @IsNotEmpty()
+  @IsEmail()
   email: string;
 
+  @IsNotEmpty()
+  @IsStrongPassword()
   password: string;
 
   phone: string;
